@@ -13,6 +13,11 @@ const io = socketio(expressServer, {});
 
 //on is a regular javascript/node event listener
 //listen for the connect event, when a client connects, we get a socket, that we can then use for the callback function
+
 io.on("connect", (socket) => {
   console.log(socket.id, " has joined our server.");
+
+  //using emit, we can send something to the client
+  socket.emit("welcome", [1, 2, 3]);
 });
+//33:31
